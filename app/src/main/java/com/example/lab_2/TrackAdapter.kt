@@ -1,5 +1,6 @@
 package com.example.lab_2
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,11 +23,14 @@ class TrackAdapter(): RecyclerView.Adapter<TrackAdapter.TrackHolder>() {
             binding.im.setImageResource(track.imageId)
             binding.tvAuthor.text = track.author
             binding.tvName.text = track.name
+            Log.d("TrackAdapter", "View was filled with author - " + track.author +
+                ", name of music - " + track.name + ", imageId - " + track.imageId)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.track_item, parent, false)
+        Log.d("TrackAdapter", "View was inflated")
         return TrackHolder(view)
     }
 
