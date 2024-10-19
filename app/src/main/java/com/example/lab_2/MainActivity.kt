@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             rcView.layoutManager = GridLayoutManager(this@MainActivity, 1)
             rcView.adapter = adapter
-            buttonAdd.setOnClickListener{
-                var track = Track(R.drawable.forest, "Title1")
-                adapter.addTrack(track)
-            }
         }
     }
 

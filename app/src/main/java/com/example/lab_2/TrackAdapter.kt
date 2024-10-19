@@ -7,18 +7,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lab_2.databinding.TrackItemBinding
 
 class TrackAdapter(): RecyclerView.Adapter<TrackAdapter.TrackHolder>() {
-    val trackList = listOf(Track(R.drawable.forest, "t"),
-        Track(R.drawable.forest, "w"), Track(R.drawable.forest, "t"),
-        Track(R.drawable.forest, "w"), Track(R.drawable.forest, "t"),
-        Track(R.drawable.forest, "w"), Track(R.drawable.forest, "t"),
-        Track(R.drawable.forest, "w")
+    val trackList = listOf(Track(R.drawable.forest, "Music1", "Author1"),
+        Track(R.drawable.forest, "Music2", "Author2"), Track(R.drawable.forest, "Music3", "Author3"),
+        Track(R.drawable.forest, "Music4", "Author4"), Track(R.drawable.forest, "Music5", "Author5"),
+        Track(R.drawable.forest, "Music6", "Author6"), Track(R.drawable.forest, "Music7", "Author7"),
+        Track(R.drawable.forest, "Music8", "Author8"), Track(R.drawable.forest, "Music9", "Author9"), Track(R.drawable.forest, "Music5", "Author5"),
+        Track(R.drawable.forest, "Music10", "Author10"), Track(R.drawable.forest, "Music11", "Author11"),
+        Track(R.drawable.forest, "Music12", "Author12")
         )
 
     class TrackHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = TrackItemBinding.bind(item)
         fun bind(track: Track) {
             binding.im.setImageResource(track.imageId)
-            binding.tvTitle.text = track.title
+            binding.tvAuthor.text = track.author
+            binding.tvName.text = track.name
         }
     }
 
@@ -32,12 +35,7 @@ class TrackAdapter(): RecyclerView.Adapter<TrackAdapter.TrackHolder>() {
     }
 
     override fun onBindViewHolder(holder: TrackHolder, position: Int) {
-        holder.bind(trackList[0])
-    }
-
-    fun addTrack(track: Track) {
-      //  trackList.add(track)
-        notifyDataSetChanged()
+        holder.bind(trackList[position])
     }
 
 }
